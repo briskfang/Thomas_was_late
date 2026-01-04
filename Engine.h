@@ -29,7 +29,7 @@ class Engine
 
         bool m_Playing = false;
         bool m_Character1 = true;
-        bool m_SpriteScreen = false;
+        bool m_SplitScreen = false;
 
         float m_TimeRemaining;
         Time m_GameTimeTotal;
