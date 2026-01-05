@@ -4,6 +4,8 @@
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
+#include "LevelManager.h"
+
 
 
 using namespace sf;
@@ -15,6 +17,8 @@ class Engine
 
         Thomas m_Thomas;
         Bob    m_Bob;
+
+        LevelManager m_LM;
 
         const int TILE_SIZE = 50;
         const int VERTS_IN_QUAD = 4;
@@ -38,13 +42,21 @@ class Engine
         bool m_Character1 = true;
         bool m_SplitScreen = false;
 
-        float m_TimeRemaining = 10;
+        float m_TimeRemaining = 10; // in LM:  m_BaseTimeLimit * m_TimeModifier
         Time m_GameTimeTotal;
         bool m_NewLevelRequired = true;
+
+        VertexArray m_VALevel;
+        int** m_ArrayLevel = NULL;
+        Texture m_TextureTiles;
 
         void input();
         void update(float dtAsSeconds);
         void draw();
+
+        void loadLevel();
+        bool detectCollisions(PlayableCharacter& character);
+
 
     public:
         Engine();
