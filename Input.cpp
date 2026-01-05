@@ -20,4 +20,16 @@ void Engine::input()
                 m_SplitScreen = !m_SplitScreen;
         }
     }
+
+    if(m_Thomas.handleInput())
+    {
+        // play sound        
+    }
+
+    if(m_Bob.handleInput())
+    {
+        // play sound
+    }
+    
+
 }
