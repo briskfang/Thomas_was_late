@@ -17,7 +17,7 @@ void Engine::input()
                 m_Character1 = !m_Character1;
 
             if(Keyboard::isKeyPressed(Keyboard::E))
-                m_SpriteScreen = !m_SpriteScreen;
+                m_SplitScreen = !m_SplitScreen;
         }
     }
 }
