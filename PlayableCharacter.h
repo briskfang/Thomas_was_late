@@ -29,7 +29,7 @@ class PlayableCharacter
 
     public:
         void spawn(Vector2f startPosition, float gravity);
-        bool virtual handleInput() = 0;
+        bool virtual handleInput() = 0;  // virtual
 
         FloatRect getPosition();
         FloatRect getFeet();
