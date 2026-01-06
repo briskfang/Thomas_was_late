@@ -5,8 +5,8 @@ using namespace sf;
 
 class PlayableCharacter
 {
-    protected:
-        Sprite m_Sprite; // Sprite is protected member and Texture is private member
+    protected:           // for inheritance 
+        Sprite m_Sprite; // Sprite is protected, because it will be used by Thomas and Bob directly.
         float m_JumpDuration;
         bool m_IsJumping;
         bool m_IsFalling;
@@ -17,14 +17,14 @@ class PlayableCharacter
 
 
     private:
-        float m_Gravity;
-        float m_Speed = 400;
-        Vector2f m_Position;
+        float m_Gravity;       // number of pixels
+        float m_Speed = 400;   // number of pixels
+        Vector2f m_Position;   // character position, position in the world
         FloatRect m_Feet;
         FloatRect m_Head;
         FloatRect m_Right;
         FloatRect m_Left;
-        Texture m_Texture;
+        Texture m_Texture; // Texture is private, because it will not be used by Thomas and Bob directly
 
 
     public:

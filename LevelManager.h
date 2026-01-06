@@ -7,8 +7,8 @@ using namespace std;
 class LevelManager
 {
     private:
-        Vector2i m_LevelSize;
-        Vector2f m_StartPosition;
+        Vector2i m_LevelSize;          // number of tiles
+        Vector2f m_StartPosition;      // position in pixels
         float m_TimeModifier = 1;
         float m_BaseTimeLimit = 0;
         int m_CurrentLevel = 0;
