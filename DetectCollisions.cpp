@@ -1,7 +1,11 @@
 #include "Engine.h"
+#include "Log.h"
+
+
 
 bool Engine::detectCollisions(PlayableCharacter& character)
 {
+    LOG_INFO("Enter Engine::detectCollisions()");
     bool reachedGoal = false;
 
     FloatRect detectionZone = character.getPosition();

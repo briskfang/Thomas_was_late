@@ -1,12 +1,15 @@
 #include "Engine.h"
+#include "Log.h"
 #include <SFML/Graphics.hpp>
 #include <sstream>
+
 
 using namespace sf;
 
 void Engine::update(float dtAsSeconds)
 {
     
+    LOG_INFO("Enter Engine::update()");
     if(m_NewLevelRequired)
     {
         /*

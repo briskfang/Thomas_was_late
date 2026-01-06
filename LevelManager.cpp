@@ -4,6 +4,7 @@
 #include <fstream>
 #include "TextureHolder.h"
 #include "LevelManager.h"
+#include "Log.h"
 
 
 using namespace sf;
@@ -12,7 +13,7 @@ using namespace std;
 
 int** LevelManager::nextLevel(VertexArray& rVaLevel)
 {
-
+    LOG_INFO("Enter LevelManager::nextLevel()");
     m_LevelSize.x = 0;
     m_LevelSize.y = 0;
 
@@ -121,20 +122,24 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel)
 
 Vector2i LevelManager::getLevelSize()
 {
+    LOG_INFO("Enter LevelManager::getLevelSize()");
     return m_LevelSize;
 }
 
 int LevelManager::getCurrentLevel()
 {
+    LOG_INFO("Enter LevelManager::getCurrentLevel()");
     return m_CurrentLevel;
 }
 
 float LevelManager::getTimeLimit()
 {
+    LOG_INFO("Enter LevelManager::getTimeLimit()");
     return m_BaseTimeLimit * m_TimeModifier;
 }
 
 Vector2f LevelManager::getStartPosition()
 {
+    LOG_INFO("Enter LevelManager::getStartPosition()");
     return m_StartPosition;
 }

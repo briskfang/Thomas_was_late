@@ -1,8 +1,10 @@
 #include "Thomas.h"
 #include "TextureHolder.h"
+#include "Log.h"
 
 Thomas::Thomas()
 {
+    LOG_INFO("Enter Thomas::Thomas()");
     m_Sprite = Sprite(TextureHolder::getTexture("graphics/thomas.png"));
     m_JumpDuration = 0.45;
 }
@@ -10,11 +12,13 @@ Thomas::Thomas()
 
 bool Thomas::handleInput()
 {
+    LOG_INFO("Enter Thomas::handleInput()");
     m_JustJumped = false;
 
     // W: jump
     if(Keyboard::isKeyPressed(Keyboard::W))
     {
+        LOG_INFO("Keyboard W pressed");
         if(!m_IsJumping && !m_IsFalling)
         {
             m_IsJumping = true;
@@ -31,6 +35,7 @@ bool Thomas::handleInput()
     // A: Left
     if(Keyboard::isKeyPressed(Keyboard::A))
     {
+        LOG_INFO("Keyboard A pressed");
         m_LeftPressed = true;
     }
     else
@@ -41,6 +46,7 @@ bool Thomas::handleInput()
     // D: right
     if(Keyboard::isKeyPressed(Keyboard::D))
     {
+        LOG_INFO("Keyboard D pressed");
         m_RightPressed = true;
     }
     else

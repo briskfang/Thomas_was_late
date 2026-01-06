@@ -1,7 +1,10 @@
 #include "Engine.h"
+#include "Log.h"
+
 
 void Engine::input()
 {
+    LOG_INFO("Enter Engine::input()");
     Event event;
     while(m_Window.pollEvent(event))
     {
@@ -23,11 +26,13 @@ void Engine::input()
 
     if(m_Thomas.handleInput())
     {
+        LOG_INFO("Enter Thomas handleInput()");
         // play sound        
     }
 
     if(m_Bob.handleInput())
     {
+        LOG_INFO("Enter Bob handleInput()");
         // play sound
     }
     

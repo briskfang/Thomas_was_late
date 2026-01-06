@@ -1,7 +1,10 @@
 #include "Engine.h"
+#include "Log.h"
 
 int main()
 {
+    Logger::init("log/thomas.log", LogLevel::INFO);
+    LOG_INFO("Enter Main()");
     Engine engine;
 
     engine.run();

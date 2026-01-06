@@ -1,7 +1,9 @@
 #include "PlayableCharacter.h"
+#include "Log.h"
 
 void PlayableCharacter::spawn(Vector2f startPosition, float gravity)
 {
+    LOG_INFO("Enter PlayableCharacter::spawn()");
     m_Position.x = startPosition.x;
     m_Position.y = startPosition.y;
 
@@ -11,6 +13,7 @@ void PlayableCharacter::spawn(Vector2f startPosition, float gravity)
 
 void PlayableCharacter::update(float elapsedTime)
 {
+    LOG_INFO("Enter PlayableCharacter::update()");
     if(m_RightPressed)
         m_Position.x += m_Speed * elapsedTime;
 
@@ -98,6 +101,7 @@ Sprite PlayableCharacter::getSprite()
 
 void PlayableCharacter::stopFalling(float position)
 {
+    LOG_INFO("Enter PlayableCharacter::stopFalling()");
     m_Position.y = position - getPosition().height;
     m_Sprite.setPosition(m_Position);
     m_IsFalling = false;
@@ -105,18 +109,21 @@ void PlayableCharacter::stopFalling(float position)
 
 void PlayableCharacter::stopRight(float position)
 {
+    LOG_INFO("Enter PlayableCharacter::stopRight()");
     m_Position.x = position - m_Sprite.getGlobalBounds().width;
     m_Sprite.setPosition(m_Position);
 }
 
 void PlayableCharacter::stopLeft(float position)
 {
+    LOG_INFO("Enter PlayableCharacter::stopLeft()");
     m_Position.x = position + m_Sprite.getGlobalBounds().width;
     m_Sprite.setPosition(m_Position);
 }
 
 void PlayableCharacter::stopJump()
 {
+    LOG_INFO("Enter PlayableCharacter::stopJump()");
     m_IsJumping = false;
     m_IsFalling = true;
 }

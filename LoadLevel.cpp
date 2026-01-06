@@ -1,7 +1,9 @@
 #include "Engine.h"
+#include "Log.h"
 
 void Engine::loadLevel()
 {
+    LOG_INFO("Enter Engine::loadLevel()");
     m_Playing = false;
 
     for(int i = 0; i < m_LM.getLevelSize().y; ++i)

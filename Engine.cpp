@@ -1,7 +1,10 @@
 #include "Engine.h"
+#include "Log.h"
+
 
 Engine::Engine()
 {
+    LOG_INFO("Enter Engine::Engine()");    
     Vector2f resolution;
     resolution.x = VideoMode::getDesktopMode().width;
     resolution.y = VideoMode::getDesktopMode().height;
@@ -31,6 +34,7 @@ Engine::Engine()
 
 void Engine::run()
 {
+    LOG_INFO("Enter Engine::run()");
     Clock clock;
     while(m_Window.isOpen())
     {

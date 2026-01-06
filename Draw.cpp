@@ -1,7 +1,11 @@
 #include "Engine.h"
+#include "Log.h"
+
+
 
 void Engine::draw()
 {
+    LOG_INFO("Enter Engine::Draw()");
     m_Window.clear(Color::White);
 
     if(!m_SplitScreen)
