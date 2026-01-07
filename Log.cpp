@@ -36,7 +36,7 @@ std::string Logger::timestamp()
 
 
 // init()
-void Logger::init(const std::string& filename, LogLevel level = LogLevel::INFO)
+void Logger::init(const std::string& filename, LogLevel level = LogLevel::ERROR)
 {
     instance().file.open(filename, std::ios::out | std::ios::app); // write(output) and append to the end(app), avoid overwriting
     instance().currentLevel = level;

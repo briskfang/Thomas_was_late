@@ -26,6 +26,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 
     FloatRect level(0, 0, m_LM.getLevelSize().x * TILE_SIZE, m_LM.getLevelSize().y * TILE_SIZE);
     
+    // if the character fallen out of the map
     if(!character.getPosition().intersects(level))
     {
         character.spawn(m_LM.getStartPosition(), GRAVITY);
@@ -46,11 +47,11 @@ bool Engine::detectCollisions(PlayableCharacter& character)
                     character.spawn(m_LM.getStartPosition(), GRAVITY);
                     if(m_ArrayLevel[y][x] == 2) // fire
                     {
-                        // play sound
+                        m_SM.playFallInFire();
                     }
                     else                        // water
                     {
-                        // play sound
+                        m_SM.playFallInWater();
                     }
 
                 }

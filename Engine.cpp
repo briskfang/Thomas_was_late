@@ -8,6 +8,9 @@ Engine::Engine()
     Vector2f resolution;
     resolution.x = VideoMode::getDesktopMode().width;
     resolution.y = VideoMode::getDesktopMode().height;
+    std::cout << resolution.x << std::endl;
+    std::cout << resolution.y << std::endl;
+
 
     //RenderWindow
     m_Window.create(VideoMode(resolution.x, resolution.y), "Thomas was late", Style::Fullscreen);

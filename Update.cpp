@@ -31,6 +31,7 @@ void Engine::update(float dtAsSeconds)
         if(detectCollisions(m_Thomas) && detectCollisions(m_Bob)) // ?
         {
             m_NewLevelRequired = true;
+            m_SM.playReachGoal();
         }
         else
         {
@@ -50,7 +51,22 @@ void Engine::update(float dtAsSeconds)
 
         if(m_TimeRemaining <= 0)
             m_NewLevelRequired = true;
+
     }
+
+    vector<Vector2f>::iterator it;
+    for(it = m_FireEmitters.begin(); it != m_FireEmitters.end(); it++)
+    {
+        float posX = (*it).x;
+        float posY = (*it).y;
+
+        FloatRect localRect(posX - 250, posY - 250, 500, 500);
+        if(m_Thomas.getPosition().intersects(localRect))
+        {
+            m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
+        }
+    }
+
 
 
     if(m_SplitScreen)
@@ -68,6 +84,23 @@ void Engine::update(float dtAsSeconds)
         {
             m_MainView.setCenter(m_Bob.getCenter());
         }
+    }
+
+
+    m_FramesSinceLastHUDUpdate++;
+
+    if(m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate)
+    {
+        stringstream ssTime;
+        stringstream ssLevel;
+
+        ssTime << (int)m_TimeRemaining;
+        m_Hud.setTime(ssTime.str());
+
+        ssLevel << "Level:" << m_LM.getCurrentLevel();
+        m_Hud.setLevel(ssLevel.str());
+
+        m_FramesSinceLastHUDUpdate = 0;
     }
     
 }

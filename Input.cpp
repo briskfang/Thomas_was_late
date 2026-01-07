@@ -27,13 +27,13 @@ void Engine::input()
     if(m_Thomas.handleInput())
     {
         LOG_INFO("Enter Thomas handleInput()");
-        // play sound        
+        m_SM.playJump();        
     }
 
     if(m_Bob.handleInput())
     {
         LOG_INFO("Enter Bob handleInput()");
-        // play sound
+        m_SM.playJump();
     }
     
 
